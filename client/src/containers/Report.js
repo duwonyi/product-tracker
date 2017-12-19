@@ -1,9 +1,39 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { fetchHistory } from '../actions/history'
 import ReportTable from '../components/ReportTable'
 
-export default ({history, products}) => (
-  <div>
-    <h1>Report</h1>
-    <ReportTable history={history} products={products} />
-  </div>
-)
+class Report extends Component {
+  componentDidMount() {
+    const { dispatch, fetchHistory } = this.props
+    dispatch(fetchHistory())
+  }
+
+  render() {
+    const {
+      history,
+      products,
+    } = this.props
+    return (
+      <div>
+        <h1>Report</h1>
+        <ReportTable history={history} products={products} />
+      </div>
+    )
+  }
+}
+
+const mapStateToProps = state => ({
+  history: state.history.history,
+  products: state.history.products,
+})
+
+const mapDispatchToProps = dispatch => ({
+  dispatch,
+  fetchHistory,
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Report)

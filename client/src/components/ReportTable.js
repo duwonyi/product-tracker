@@ -11,8 +11,7 @@ class ReportTable extends Component {
   }
 
   getProductDescription = () => {
-    return this.props.products.find(p => p.id === this.state.productId)
-      .description
+    return this.props.products[this.state.productId].description
   }
 
   renderReportTable = () => {

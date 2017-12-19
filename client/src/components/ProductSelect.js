@@ -1,5 +1,12 @@
 import React, { Component } from 'react'
 
+function objToArr(obj) {
+  const arr = []
+  for (let nm in obj) {
+    arr.push(obj[nm])
+  }
+  return arr
+}
 class ProductSelect extends Component {
   state = {
     productId: this.props.productId,
@@ -16,7 +23,7 @@ class ProductSelect extends Component {
   }
 
   render() {
-    const products = this.props.products || []
+    const products = objToArr(this.props.products) || []
     const defaultName = this.props.defaultOptionName || 'Select Product.'
     return (
       <div>
