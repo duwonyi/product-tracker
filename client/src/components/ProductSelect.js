@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Input } from 'reactstrap'
 
 function objToArr(obj) {
   const arr = []
@@ -27,7 +28,9 @@ class ProductSelect extends Component {
     const defaultName = this.props.defaultOptionName || 'Select Product.'
     return (
       <div>
-        <select
+        <Input
+          type='select'
+          name='select'
           onChange={this.handleSelectProduct}
           value={this.state.productId || ''}
         >
@@ -37,7 +40,7 @@ class ProductSelect extends Component {
               {p.description}
             </option>
           ))}
-        </select>
+        </Input>
       </div>
     )
   }

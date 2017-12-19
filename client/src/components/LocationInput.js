@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import DatePicker from 'react-datepicker'
 import moment from 'moment'
 import ProductSelect from './ProductSelect'
+import { Form, FormGroup, Label, Input } from 'reactstrap'
 
 import 'react-datepicker/dist/react-datepicker.css'
 
@@ -80,54 +81,62 @@ class LocationInput extends Component {
     const { datetime, longitude, latitude, elevation } = this.state
     const buttonLabel = edit ? 'Update': 'Add'
     return (
-      <div>
+      <div className='container'>
         <h2>Add Location</h2>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            Product:&nbsp;
+        <Form onSubmit={this.handleSubmit}>
+          <FormGroup>
+            <Label for='selectProduct'>Product</Label>
             <ProductSelect
+              id='selectProduct'
               productId={this.state.productId}
               products={products}
               defaultOptionName={'Which product to track?'}
               onChange={this.onProductChange}
             />
-          </div>
-          <div>
-            DateTime:&nbsp;
+          </FormGroup>
+          <FormGroup>
+            <Label for='datetimePicker'>DateTime</Label>
             <DatePicker
+              id='dateTimePicker'
               onChange={this.handleDateChange}
               selected={datetime}
             />
-          </div>
-          <div>
-            Longitude:&nbsp;
-            <input
+          </FormGroup>
+          <FormGroup>
+            <Label for='fieldLongitude'>Longitude</Label>
+            <Input
+              id='fieldLongitude'
               type="text"
               name="longitude"
               onChange={this.handleInputChange}
               value={longitude}
             />
-          </div>
-          <div>
-            Latitude:&nbsp;
-            <input
+          </FormGroup>
+          <FormGroup>
+            <Label for='fieldLatitude'>Latitude</Label>
+            <Input
+              id="fieldLatitude"
               type="text"
               name="latitude"
               onChange={this.handleInputChange}
               value={latitude}
             />
-          </div>
-          <div>
-            Elevation:&nbsp;
-            <input
+          </FormGroup>
+          <FormGroup>
+            <Label for='fieldElevation'>Elevation</Label>
+            <Input
               type="text"
               name="elevation"
               onChange={this.handleInputChange}
               value={elevation}
             />
-          </div>
-          <input type='submit' value={buttonLabel + ' History'}/>
-        </form>
+          </FormGroup>
+          <input
+            className='btn btn-secondary'
+            type='submit'
+            value={buttonLabel + ' History'}
+          />
+        </Form>
       </div>
     )
   }

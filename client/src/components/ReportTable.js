@@ -58,7 +58,7 @@ class ReportTable extends Component {
       <div className='container'>
         <h2 className='mt-4'>Product report</h2>
         <div>
-          Product:&nbsp;
+          Product
           <ProductSelect
             productId={this.state.productId}
             products={products}
