@@ -7,6 +7,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import App from './App'
 import reducer from './reducers'
 import registerServiceWorker from './registerServiceWorker'
+import 'bootstrap/dist/css/bootstrap.css'
 import './index.css'
 
 const middleware = [thunk]
