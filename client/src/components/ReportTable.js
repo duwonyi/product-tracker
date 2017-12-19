@@ -47,7 +47,6 @@ class ReportTable extends Component {
             ))}
           </tbody>
         </table>
-        <button>PDF Export</button>
       </div>
     )
   }
