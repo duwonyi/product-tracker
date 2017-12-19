@@ -15,8 +15,8 @@ class Report extends Component {
       products,
     } = this.props
     return (
-      <div>
-        <h1>Report</h1>
+      <div className='container'>
+        <h1 className='mt-2'>Report</h1>
         <ReportTable history={history} products={products} />
       </div>
     )

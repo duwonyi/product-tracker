@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ProductSelect from './ProductSelect'
+import { Table } from 'reactstrap'
 
 class ReportTable extends Component {
   state = {
@@ -23,9 +24,9 @@ class ReportTable extends Component {
       h => h.product.id === selectedProductId,
     )
     return (
-      <div>
-        <h3>{this.getProductDescription()}</h3>
-        <table>
+      <div className='container'>
+        <h3 className='mt-4'>{this.getProductDescription()}</h3>
+        <Table>
           <thead>
             <tr>
               <th>Seq.</th>
@@ -46,7 +47,7 @@ class ReportTable extends Component {
               </tr>
             ))}
           </tbody>
-        </table>
+        </Table>
       </div>
     )
   }
@@ -54,8 +55,8 @@ class ReportTable extends Component {
   render() {
     const { products } = this.props
     return (
-      <div>
-        <h2>Product report</h2>
+      <div className='container'>
+        <h2 className='mt-4'>Product report</h2>
         <div>
           Product:&nbsp;
           <ProductSelect

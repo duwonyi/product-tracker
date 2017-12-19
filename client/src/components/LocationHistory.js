@@ -1,6 +1,7 @@
 import React from 'react'
 import ActionButtons from './ActionButtons'
 import DownloadLink from 'react-download-link'
+import { Table } from 'reactstrap'
 
 const exportData = history => {
   const header = [`Product Id\tDescription\tDateTime\tLongitude\tLatitude\tElevation`]
@@ -24,9 +25,9 @@ const exportData = history => {
 }
 
 export default ({ history, onEditHistory, onDeleteHistory }) => (
-  <div>
-    <h2>Location History</h2>
-    <table>
+  <div className='container'>
+    <h2 className='mt-4'>Location History</h2>
+    <Table>
       <thead>
         <tr>
           <th>Product Id</th>
@@ -57,10 +58,11 @@ export default ({ history, onEditHistory, onDeleteHistory }) => (
           </tr>
         ))}
       </tbody>
-    </table>
+    </Table>
     <DownloadLink
-      filename="export.txt"
-      label="Export"
+      className='btn btn-primary'
+      filename='export.txt'
+      label='Export Data'
       exportFile={() => exportData(history)}
     />
   </div>
